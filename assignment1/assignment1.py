@@ -3,35 +3,37 @@ def hello ():
 hello()
 
 def greet (name):
-    return "Hello, " + name + "!"
+    return f'Hello, {name}!'
 greet("James")
 
 def calc (a, b, action="multiply"):
-    if type(a) == str or type(b) == str:
-        return "You can't multiply those values!"
-    elif action=="multiply":
-        return a * b
-    elif action=="add":
-        return a + b
-    elif action=="divide":
-        if b == 0:
-            return "You can't divide by 0!"
+
+        if type(a) == str or type(b) == str:
+            raise TypeError(f"You can't {action} those values!")
+        elif action=="multiply":
+            return a * b
+        elif action=="add":
+            return a + b
+        elif action=="divide":
+            try:
+                return a / b
+            except ZeroDivisionError:
+                return "You can't divide by 0!"
+        elif action=="subtract":
+            return a - b
+        elif action=="modulo":
+            return a % b
+        elif action=="power":
+            return a ** b
+        elif action=="int_divide":
+            try:
+                return a / b
+            except ZeroDivisionError:
+                return "You can't divide by 0!"
         else:
-            return a / b
-    elif action=="subtract":
-        return a - b
-    elif action=="modulo":
-        return a % b
-    elif action=="power":
-        return a ** b
-    elif action=="int_divide":
-        if b == 0:
-            return "You can't divide by 0!"
-        else:
-            return a // b
-    else:
-        return "Invalid action provided."
-calc(5,6)
+            return "Invalid action provided."
+calc(5, 6)
+
   
 
 def data_type_conversion (value, target_type):
@@ -138,4 +140,3 @@ def pig_latin (string):
         else:            
             pig_latin_words[pig_latin_words.index(pl_word)] = pl_word + "ay"
     return " ".join(pig_latin_words)
-print(pig_latin("square"))
