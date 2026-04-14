@@ -140,3 +140,4 @@ def pig_latin (string):
         else:            
             pig_latin_words[pig_latin_words.index(pl_word)] = pl_word + "ay"
     return " ".join(pig_latin_words)
+pig_latin("the quick brown fox")
