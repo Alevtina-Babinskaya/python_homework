@@ -59,7 +59,7 @@ def sort_by_last_name():
         return employees['rows']
     except Exception as e:
         print(f"An error occurred: {e}")
-employees['rows'] = sort_by_last_name()
+sort_by_last_name()
 
 
 # task 8
@@ -79,7 +79,7 @@ def employee_dict(row):
         # return employee_dictionary
     except Exception as e:
         print(f"An error occurred: {e}")
-employee_dict(employees['rows'][0])
+print(employee_dict(employees['rows'][0]))
 
 
 # task 9
