@@ -1,0 +1,5 @@
+function: hello_world | positional parameters: () | keyword parameters: {} | return: None
+function: return_true | positional parameters: (1, 2, 3) | keyword parameters: {} | return: True
+function: hello_world | positional parameters: () | keyword parameters: {} | return: None
+function: return_true | positional parameters: (1, 2, 3) | keyword parameters: {} | return: True
+function: get_decorator | positional parameters: () | keyword parameters: {'a': 1, 'b': 2} | return: <function logger_decorator at 0x104edf1c0>
