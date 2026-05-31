@@ -1,0 +1,180 @@
+For English Wkipedia sensitive / non-indexable Wikipedia pages are restricted 
+Disallow: /wiki/Wikipedia:Articles_for_deletion/
+Disallow: /wiki/Wikipedia%3AArticles_for_deletion/
+Disallow: /wiki/Wikipedia:Votes_for_deletion/
+Disallow: /wiki/Wikipedia%3AVotes_for_deletion/
+Disallow: /wiki/Wikipedia:Pages_for_deletion/
+Disallow: /wiki/Wikipedia%3APages_for_deletion/
+Disallow: /wiki/Wikipedia:Miscellany_for_deletion/
+Disallow: /wiki/Wikipedia%3AMiscellany_for_deletion/
+Disallow: /wiki/Wikipedia:Miscellaneous_deletion/
+Disallow: /wiki/Wikipedia%3AMiscellaneous_deletion/
+Disallow: /wiki/Wikipedia:Copyright_problems
+Disallow: /wiki/Wikipedia%3ACopyright_problems
+Disallow: /wiki/Wikipedia:Protected_titles/
+Disallow: /wiki/Wikipedia%3AProtected_titles/
+# T15398
+Disallow: /wiki/Wikipedia:WikiProject_Spam/
+Disallow: /wiki/Wikipedia%3AWikiProject_Spam/
+# T16075
+Disallow: /wiki/MediaWiki:Spam-blacklist
+Disallow: /wiki/MediaWiki%3ASpam-blacklist
+Disallow: /wiki/MediaWiki_talk:Spam-blacklist
+Disallow: /wiki/MediaWiki_talk%3ASpam-blacklist
+# T13261
+Disallow: /wiki/Wikipedia:Requests_for_arbitration/
+Disallow: /wiki/Wikipedia%3ARequests_for_arbitration/
+Disallow: /wiki/Wikipedia:Requests_for_comment/
+Disallow: /wiki/Wikipedia%3ARequests_for_comment/
+Disallow: /wiki/Wikipedia:Requests_for_adminship/
+Disallow: /wiki/Wikipedia%3ARequests_for_adminship/
+# T12288
+Disallow: /wiki/Wikipedia_talk:Articles_for_deletion/
+Disallow: /wiki/Wikipedia_talk%3AArticles_for_deletion/
+Disallow: /wiki/Wikipedia_talk:Votes_for_deletion/
+Disallow: /wiki/Wikipedia_talk%3AVotes_for_deletion/
+Disallow: /wiki/Wikipedia_talk:Pages_for_deletion/
+Disallow: /wiki/Wikipedia_talk%3APages_for_deletion/
+Disallow: /wiki/Wikipedia_talk:Miscellany_for_deletion/
+Disallow: /wiki/Wikipedia_talk%3AMiscellany_for_deletion/
+Disallow: /wiki/Wikipedia_talk:Miscellaneous_deletion/
+Disallow: /wiki/Wikipedia_talk%3AMiscellaneous_deletion/
+# T16793
+Disallow: /wiki/Wikipedia:Changing_username
+Disallow: /wiki/Wikipedia%3AChanging_username
+Disallow: /wiki/Wikipedia:Changing_username/
+Disallow: /wiki/Wikipedia%3AChanging_username/
+Disallow: /wiki/Wikipedia_talk:Changing_username
+Disallow: /wiki/Wikipedia_talk%3AChanging_username
+Disallow: /wiki/Wikipedia_talk:Changing_username/
+Disallow: /wiki/Wikipedia_talk%3AChanging_username/
+
+Also core system & technical pages are restricted:
+Disallow: /w/
+Disallow: /api/
+Disallow: /trap/
+Disallow: /wiki/Special:
+Disallow: /wiki/Spezial:
+Disallow: /wiki/Spesial:
+Disallow: /wiki/Special%3A
+Disallow: /wiki/Spezial%3A
+Disallow: /wiki/Spesial%3A
+
+These agents are restricted:
+Observed spamming large amounts of https://en.wikipedia.org/?curid=NNNNNN
+# and ignoring 429 ratelimit responses, claims to respect robots:
+# http://mj12bot.com/
+User-agent: MJ12bot
+Disallow: /
+
+# advertising-related bots:
+User-agent: Mediapartners-Google*
+Disallow: /
+
+# Wikipedia work bots:
+User-agent: IsraBot
+Disallow:
+
+User-agent: Orthogaffe
+Disallow:
+
+# Crawlers that are kind enough to obey, but which we'd rather not have
+# unless they're feeding search engines.
+User-agent: UbiCrawler
+Disallow: /
+
+User-agent: DOC
+Disallow: /
+
+User-agent: Zao
+Disallow: /
+
+# Some bots are known to be trouble, particularly those designed to copy
+# entire sites. Please obey robots.txt.
+User-agent: sitecheck.internetseer.com
+Disallow: /
+
+User-agent: Zealbot
+Disallow: /
+
+User-agent: MSIECrawler
+Disallow: /
+
+User-agent: SiteSnagger
+Disallow: /
+
+User-agent: WebStripper
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: Fetch
+Disallow: /
+
+User-agent: Offline Explorer
+Disallow: /
+
+User-agent: Teleport
+Disallow: /
+
+User-agent: TeleportPro
+Disallow: /
+
+User-agent: WebZIP
+Disallow: /
+
+User-agent: linko
+Disallow: /
+
+User-agent: HTTrack
+Disallow: /
+
+User-agent: Microsoft.URL.Control
+Disallow: /
+
+User-agent: Xenu
+Disallow: /
+
+User-agent: larbin
+Disallow: /
+
+User-agent: libwww
+Disallow: /
+
+User-agent: ZyBORG
+Disallow: /
+
+User-agent: Download Ninja
+Disallow: /
+
+# Misbehaving, requests much too fast
+User-agent: fast
+Disallow: /
+
+# Sorry, wget in its recursive mode is a frequent problem.
+# Please read the man page and use it properly; there is a
+# --wait option you can use to set the delay between hits,
+# for instance.
+User-agent: wget
+Disallow: /
+
+# The 'grub' distributed client has been *very* poorly behaved.
+User-agent: grub-client
+Disallow: /
+
+# Doesn't follow robots.txt anyway, but...
+User-agent: k2spider
+Disallow: /
+
+# Hits many times per second, not acceptable
+# http://www.nameprotect.com/botinfo.html
+User-agent: NPBot
+Disallow: /
+
+# A capture bot, downloads gazillions of pages with no public benefit
+# http://www.webreaper.net/
+User-agent: WebReaper
+Disallow: /
+
+robots.txt is used to tell web crawlers which parts of a website they are allowed or not allowed to access, helping protect server resources and sensitive content. It prevents aggressive or malicious scraping that could overload systems or expose internal pages not meant for indexing. In this way, it promotes ethical scraping by setting clear boundaries so bots can behave responsibly and respect site owners’ rules.
