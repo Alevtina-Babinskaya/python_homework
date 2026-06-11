@@ -32,7 +32,8 @@ try:
                        subscriber_id INTEGER,
                        expiration_date TEXT NOT NULL,
                        FOREIGN KEY (magazine_id) REFERENCES Magazines (magazine_id),
-                       FOREIGN KEY (subscriber_id) REFERENCES Subscribers (subscriber_id)
+                       FOREIGN KEY (subscriber_id) REFERENCES Subscribers (subscriber_id),
+                       UNIQUE(magazine_id, subscriber_id)
                        )
                        """)
 
