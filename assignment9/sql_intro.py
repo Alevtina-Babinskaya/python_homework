@@ -22,7 +22,7 @@ try:
                         CREATE TABLE IF NOT EXISTS Subscribers (
                        subscriber_id INTEGER PRIMARY KEY,
                        name TEXT NOT NULL,
-                       address TEXT
+                       address TEXT NOT NULL
                        )
                        """)
         cursor.execute("""
@@ -30,6 +30,7 @@ try:
                        subscription_id INTEGER PRIMARY KEY,
                        magazine_id INTEGER,
                        subscriber_id INTEGER,
+                       expiration_date TEXT NOT NULL,
                        FOREIGN KEY (magazine_id) REFERENCES Magazines (magazine_id),
                        FOREIGN KEY (subscriber_id) REFERENCES Subscribers (subscriber_id)
                        )
@@ -74,7 +75,7 @@ def add_subscriber (cursor, name, address):
     except sqlite3.IntegrityError:
         print(f"{name} is already in the database.")
 
-def add_subscription (cursor, subscriber, magazine):
+def add_subscription (cursor, subscriber, magazine, expiration_date):
     try:
         cursor.execute("SELECT * FROM Subscribers WHERE name = ?", (subscriber,))
         results = cursor.fetchall()
@@ -90,7 +91,7 @@ def add_subscription (cursor, subscriber, magazine):
         else:
             print(f"There is no magazine named {magazine}")
             return
-        cursor.execute("INSERT INTO Subscriptions (magazine_id, subscriber_id) VALUES (?, ?)", (magazine_id, subscriber_id))
+        cursor.execute("INSERT INTO Subscriptions (magazine_id, subscriber_id, expiration_date) VALUES (?, ?, ?)", (magazine_id, subscriber_id, expiration_date))
     except sqlite3.IntegrityError:
         print("subscription is already in the database.")
 
@@ -110,12 +111,12 @@ add_subscriber(cursor, "Bob Smith", "456 Oak Ave")
 add_subscriber(cursor, "Carol Davis", "789 Pine Rd")
 add_subscriber(cursor, "David Wilson", "101 Maple Dr")
 
-add_subscription(cursor, "Alice Johnson", "Python Monthly")
-add_subscription(cursor, "Alice Johnson", "AI Today")
-add_subscription(cursor, "Bob Smith", "Nature Weekly")
-add_subscription(cursor, "Carol Davis", "Science Digest")
-add_subscription(cursor, "Carol Davis", "Traveler")
-add_subscription(cursor, "David Wilson", "Python Monthly")
+add_subscription(cursor, "Alice Johnson", "Python Monthly", "02/27/2028")
+add_subscription(cursor, "Alice Johnson", "AI Today", "03/11/2029")
+add_subscription(cursor, "Bob Smith", "Nature Weekly", "04/12/2029")
+add_subscription(cursor, "Carol Davis", "Science Digest", "05/22/2029")
+add_subscription(cursor, "Carol Davis", "Traveler", "01/25/2030")
+add_subscription(cursor, "David Wilson", "Python Monthly", "12/01/2027")
 
 conn.commit() 
 try:      
