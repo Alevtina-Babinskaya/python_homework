@@ -1,0 +1,3 @@
+The main challenge I met when I tried to get books from other search pages. 
+The code looked correct. The driver was supposed to get the list of links from pagination. But driver only managed to get one link, which led to the next page. 
+The problem was not in the code but in how driver loads the page.
