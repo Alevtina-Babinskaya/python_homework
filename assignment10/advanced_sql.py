@@ -11,7 +11,7 @@ FROM orders AS o JOIN line_items AS l ON o.order_id = l.order_id JOIN products a
 GROUP BY l.order_id ORDER BY l.order_id LIMIT 5;"""
 cursor.execute(query)
 result = cursor.fetchall()
-#print(result)
+print(result)
 conn.close()
 
 
@@ -27,7 +27,7 @@ GROUP BY c.customer_id;
 """
 cursor.execute(query)
 result = cursor.fetchall()
-#print(result)
+print(result)
 conn.close()
 
 # task 3
@@ -38,7 +38,7 @@ cursor = conn.execute("SELECT customer_id FROM customers WHERE customers.custome
 customer_id = cursor.fetchone()[0]
 cursor = conn.execute("SELECT employee_id FROM employees WHERE employees.first_name = ? AND employees.last_name = ?;", ('Miranda', 'Harris'))
 employee_id = cursor.fetchone()[0]
-cursor = conn.execute("SELECT product_id FROM products ORDER BY products.price DESC LIMIT 5") 
+cursor = conn.execute("SELECT product_id FROM products ORDER BY products.price ASC LIMIT 5") 
 product_ids = cursor.fetchall()
 
 try:
@@ -46,9 +46,9 @@ try:
     order_id = cursor.fetchone()[0]
     for product_id in product_ids:
         cursor.execute("INSERT INTO line_items (order_id, product_id, quantity) VALUES (?, ?, ?);", (order_id, product_id[0], 10))
-    conn.commit()  # Commit transaction
+    conn.commit()  
 except Exception as e:
-    conn.rollback()  # Rollback transaction if there's an error
+    conn.rollback()  
     print("Error:", e)
 conn.close()
 
